@@ -1,6 +1,7 @@
 package main
 
 import (
+	"connect-api/routes"
 	"log"
 
 	"github.com/gin-gonic/gin"
@@ -18,6 +19,6 @@ func main() {
 		log.Panic("Can no connect Database", err.Error())
 	}
 	router := gin.Default()
-	route.NewRouteProduct(router, connectionDB)
+	routes.RegusterRoutes(router, connectionDB)
 	router.Run(portWebServie)
 }
